@@ -1,0 +1,116 @@
+{#{% extends 'base.html' %}#}
+{#{% load staticfiles %}#}
+
+{% block sidemenu %}
+<script>
+
+$(document.body).on('click', '#siOrders', function() {
+     $sidemenu.orders();
+});
+$(document.body).on('click', '#siProducts', function() {
+    $sidemenu.products();
+});
+
+
+$(document.body).on('click', '._sidemenuitem', function(e) {
+    $(e.target).addClass("active");
+{#    var item = $(e.target).text();#}
+{#    $sidemenu.run(item);#}
+});
+
+
+</script>
+
+{#<div class="row"><div id="siDashboard"  class="col-md-12 menuitem0_un">Dashboard</div></div>#}
+{#<div class="row"><div id="siProducts"  class="col-md-12 menuitem0">Products</div></div>#}
+{#<div class="row"><div id="siCategories" class="col-md-12 menuitem0_un">Categories</div></div>#}
+{#<div class="row"><div id="siInventory"  class="col-md-12 menuitem0_un">Inventory</div></div>#}
+{#<div class="row"><div id="siCustomers"  class="col-md-12 menuitem0_un">Customers</div></div>#}
+{#<div class="row"><div id="siOrders"     class="col-md-12 menuitem0">Orders</div></div>#}
+{#<div class="row"><div id="siSubscriptions" class="col-md-12 menuitem0_un">Subscriptions</div></div>#}
+{#<div class="row"><div id="siReporting"  class="col-md-12 menuitem0_un">Reporting</div></div>#}
+
+
+
+    <div class="sidebar left sidebar-size-2 sidebar-offset-0 sidebar-skin-dark sidebar-visible-desktop sidebar-visible-mob" data-type=dropdown>
+        <div class="sidebar-menu">
+            <div data-scrollable>
+                <ul>
+{#                    <li class="category"><a class="category" target="_blank" href="http://104.154.69.218:8822/">Shop</a></li>#}
+{#                    <li class="category"><a class="sidemenuitem" target="_blank" href="/webshop/">Old Shop</a></li>#}
+{#                    <li class="sidemenuitem" class="sidemenuitem {{ sidemenu_dashboard }}"><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>#}
+{#                    </li>#}
+                    <li class="category">
+                        <span class="category-title">Shop<i class="fa fa-plus"></i></span>
+                        <ul>
+                            <li class="sidemenuitem {{ sidemenu_orders }}"><a href="/orders/"><i class="fa fa-shopping-cart"></i> <span>Orders</span></a></li>
+                            <li class="sidemenuitem {{ sidemenu_customers }}"><a href="/customers/"><i class="fa fa-group"></i> <span>Customers</span></a></li>
+                            <li class="sidemenuitem {{ sidemenu_subscriptions }}"><a href="/subscriptions/"><i class="fa fa-calendar"></i> <span>Subscriptions</span></a></li>
+                            <li class="sidemenuitem {{ sidemenu_subscription_plans }}"><a href="/subscriptions/plans/"><i class="fa fa-calendar"></i> <span>Subscription plans</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="category">
+                        <span class="category-title">Shipping<i class="fa fa-plus"></i></span>
+                        <ul>
+{#                            <li class="sidemenuitem {{ sidemenu_shipments }}"><a href="{% url 'shipments-rules' %}"><i class="fa fa-cube"></i> <span>Rules</span></a></li>#}
+{#                            <li class="sidemenuitem {{ sidemenu_shipments_orders }}"><a href="{% url 'shipments-orders-unfulfilled' %}"><i class="fa fa-cube"></i> <span>Orders</span></a></li>#}
+{#                            <li class="sidemenuitem {{ sidemenu_shipments_batches }}"><a href="{% url 'shipments-batches' %}"><i class="fa fa-cube"></i> <span>Batches</span></a></li>#}
+                        </ul>
+                    </li>
+                    <li class="category">
+                        <span class="category-title">Admin<i class="fa fa-plus"></i></span>
+                        <ul>
+                            <li id="sidemenu_products" class="sidemenuitem {{ sidemenu_products }}"><a href="/products/"><i class="fa fa-tags"></i> <span>Products</span></a></li>
+                            <li class="sidemenuitem {{ sidemenu_types }}"><a href="/product_types/"><i class="fa fa-copy"></i> <span>Product Types</span></a></li>
+                            <li id="sidemenu_categories" class="sidemenuitem {{ sidemenu_categories }}"><a href="/categories/"><i class="fa fa-list-ul"></i> <span>Categories</span></a></li>
+                            <li id="sidemenu_discounts" class="sidemenuitem {{ sidemenu_discounts }}"><a href="/discounts/"><i class="fa fa-credit-card"></i> <span>Discounts</span></a></li>
+{#                            <li class="sidemenuitem {{ sidemenu_users }}"><a href="{% url 'users:list' %}"><i class="fa fa-group"></i> <span>Users</span></a></li>#}
+                            <li class="sidemenuitem {{ sidemenu_contents }}"><a href="/contents/"><i class="fa fa-calendar"></i><span>Pages Content</span></a></li>
+{#                            <li class="sidemenuitem"><a href="{% url 'redirects:list' %}"><i class="fa fa-exchange"></i><span>Redirects</span></a></li>#}
+                        </ul>
+                    </li>
+                    <li class="category">
+                        <span class="category-title">Inventory<i class="fa fa-plus"></i></span>
+                        <ul>
+                            <li class="sidemenuitem {{ sidemenu_inventories }}"><a href="/inventory/"><i class="fa fa-sort-numeric-asc"></i> <span>Inventory Log</span></a></li>
+                            <li class="sidemenuitem {{ sidemenu_inventory }}"><a href="/inv_edit/"><i class="fa fa-calculator"></i> <span>Modify Inventory</span></a></li>
+                        </ul>
+                    </li>
+
+                    {% if USER_PERMISSION.system %}
+                    <li class="category">
+                        <span class="category-title">System<i class="fa fa-plus"></i></span>
+                        <ul>
+                            {% if USER_PERMISSION.system_memcache_view %}
+                            <li class="sidemenuitem {{ sidemenu_memcache }}"><a href="/system/memcache/"><i class="fa fa-recycle"></i> <span>Clear Cache</span></a></li>
+                            {% endif %}
+                            {% if USER_PERMISSION.system_logs_view %}
+                            <li class="sidemenuitem {{ sidemenu_server_log }}"><a href="/server_logs/"><i class="fa fa-file-text-o"></i> <span>System Logs</span></a></li>
+                            {% endif %}
+                            {% if USER_PERMISSION.system_thirdpartservices_view %}
+                            <li class="sidemenuitem {{ sidemenu_third_part_services }}"><a href="/system/third_party_services/"><i class="fa fa-puzzle-piece"></i> <span>Third Part Services</span></a></li>
+                            {% endif %}
+                            {% if USER_PERMISSION.system_logs_view %}
+                            <li class="sidemenuitem {{ sidemenu_order_research }}"><a href="/system/order_research/"><i class="fa fa-bug"></i> <span>Orders Research</span></a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    {% endif %}
+                    {% if USER_PERMISSION.dashboard %}
+                    <li class="category">
+                        <span class="category-title">Dashboard<i class="fa fa-plus"></i></span>
+                        <ul>
+                            {% if USER_PERMISSION.dashboard_dashboard_view %}
+                            <li class="sidemenuitem {{ sidemenu_dashboard }}"><a href="/dashboard/"><i class="fa fa-calendar"></i> <span>Dashboard</span></a></li>
+                            {% endif %}
+
+                        </ul>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

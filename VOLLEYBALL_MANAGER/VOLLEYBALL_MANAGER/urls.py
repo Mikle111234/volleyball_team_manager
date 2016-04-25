@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from voll_manager.views import main_page
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', main_page, name='main_page')
 ]
