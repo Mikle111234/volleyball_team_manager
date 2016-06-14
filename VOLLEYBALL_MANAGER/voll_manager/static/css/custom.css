@@ -1,0 +1,21 @@
+.account-form.form-horizontal .control-label {
+    text-align: left;
+}
+.title.personal-title {
+	margin: 0 0 30px 0;
+    text-align: center;
+}
+#result-table th {
+    text-align: center;
+    vertical-align: middle;
+}
+#result-table>thead>tr>td, #result-table>thead>tr>th {
+    border-bottom-width: 1px;
+}
+.group-table th {
+    text-align: center;
+    vertical-align: middle;
+}
+#spinner {
+    text-align: center;
+}

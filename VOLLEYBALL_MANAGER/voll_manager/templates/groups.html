@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+    <div class="col-sm-3">
+        <label for="group-table-1">Низкий</label>
+        <div class="table-responsive">
+            <table id="group-table-1" class="table group-table table-bordered table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Игрок</th>
+                </tr>
+                </thead>
+                {% for player in group1 %}
+                <tr>
+                    <td>
+                        {{ player.id }}
+                    </td>
+                    <td>
+                        <a>
+                            {{ player.last_name }} {{ player.first_name }} {{ player.patronymic_name }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-3">
+    <label for="group-table-2">Средний</label>
+        <div class="table-responsive">
+            <table id="group-table-2" class="table group-table table-bordered table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Игрок</th>
+                </tr>
+                </thead>
+                {% for player in group2 %}
+                <tr>
+                    <td>
+                        {{ player.id }}
+                    </td>
+                    <td>
+                        <a>
+                            {{ player.last_name }} {{ player.first_name }} {{ player.patronymic_name }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <label for="group-table-3">Высокий</label>
+        <div class="table-responsive">
+            <table id="group-table-3" class="table group-table table-bordered table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Игрок</th>
+                </tr>
+                </thead>
+                {% for player in group3 %}
+                <tr>
+                    <td>
+                        {{ player.id }}
+                    </td>
+                    <td>
+                        <a>
+                            {{ player.last_name }} {{ player.first_name }} {{ player.patronymic_name }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <label for="group-table-4">Максимальный</label>
+        <div class="table-responsive">
+            <table id="group-table-4" class="table group-table table-bordered table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Игрок</th>
+                </tr>
+                </thead>
+                {% for player in group4 %}
+                <tr>
+                    <td>
+                        {{ player.id }}
+                    </td>
+                    <td>
+                        <a>
+                            {{ player.last_name }} {{ player.first_name }} {{ player.patronymic_name }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

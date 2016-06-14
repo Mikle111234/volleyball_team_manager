@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container user-info-box">
+        {#                <h2 class="user-info-title text-center">My account</h2>#}
+        <form name="login_form"
+              id="pers-inf-form"
+              method="POST"
+              class="form-horizontal"
+              role="form">{% csrf_token %}
+            <div class="row user-info">
+                <div class="col-sm-4 col-md-3">
+
+                    <div class="list-group side-menu compensation">
+                        <a href="/user" class="list-group-item"><i class="fa"></i>Информация о пользователе</a>
+                        <a href="/user-club" class="list-group-item active"><i class="fa"></i>Клуб</a>
+                        <a href="/user-statistics" class="list-group-item"><i class="fa"></i>Статистика</a>
+                        <a href="/settings" class="list-group-item"><i class="fa fa-cogs"></i>Настройки аккаунта</a>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-9">
+                    <div class="update-message" data-message="{{ message }}"></div>
+                    <div class="panel panel-default no-margin">
+                        <h2 class="title personal-title">Клуб</h2>
+                        <div class="panel-body panel-decor-right">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="club"
+                                           class="col-sm-3 col-sm-offset-1 control-label">Клуб</label>
+                                    <div class="col-sm-7">
+                                        {{ form.club }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="group" class="col-sm-3 col-sm-offset-1 control-label">Группа</label>
+                                    <div class="col-sm-7">
+                                        {{ form.group }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="role"
+                                           class="col-sm-3 col-sm-offset-1 control-label">Амплуа</label>
+                                    <div class="col-sm-7">
+                                        {{ form.role }}
+                                    </div>
+                                </div>
+{#                                <div class="form-group">#}
+{#                                    <div class="col-sm-offset-4 col-sm-8">#}
+{#                                        <button type="submit" class="btn btn-pink btn-round">Сохранить</button>#}
+{#                                    </div>#}
+{#                                </div>#}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

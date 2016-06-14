@@ -1,6 +1,244 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Hello, world!</h1>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-1">
+            <div class="form-group">
+            <label for="date-select">Дата</label>
+            <select id="date-select" class="form-control">
+                <option>05.06.2016</option>
+                <option>04.06.2016</option>
+                <option>30.05.2016</option>
+                <option>29.05.2016</option>
+            </select>
+                </div>
+        </div>
+        <div class="col-sm-1">
+            <div class="form-group">
+            <label for="date-select">Клуб</label>
+            <select id="date-select" class="form-control">
+                <option>Арсенал</option>
+                <option>Металлист</option>
+                <option>ДЮСШ-1</option>
+                <option>ДЮСШ-2</option>
+                <option>ДЮСШ-3</option>
+            </select>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+            <div class="table-responsive">
+                <table id="result-table" class="table table-bordered table-striped table-condensed">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">
+                            №
+                        </th>
+                        <th rowspan="2">
+                            Фамилия
+                        </th>
+                        <th rowspan="2">
+                            Имя
+                        </th>
+                        <th rowspan="2">
+                            Отчество
+                        </th>
+                        <th rowspan="2">
+                            Клуб
+                        </th>
+                        <th colspan="5">
+                            Медицинские
+                        </th>
+                        <th colspan="9">
+                            Нормативы
+                        </th>
+                        <th colspan="6">
+                            Психологические
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            ЖЕЛ
+                        </th>
+                        <th>
+                            МПК
+                        </th>
+                        <th>
+                            Теппинг тест
+                        </th>
+                        <th>
+                            Проба Ромберга
+                        </th>
+                        <th>
+                            Гарвардский степ-тест
+                        </th>
 
+                        <th>
+                            Отжимания от пола
+                        </th>
+                        <th>
+                            Выпрыгивания вверх
+                        </th>
+                        <th>
+                            Прыжок в высоту с места
+                        </th>
+                        <th>
+                            Челночный бег
+                        </th>
+                        <th>
+                            Гибкость
+                        </th>
+                        <th>
+                            Подвижность плечевого сустава
+                        </th>
+                        <th>
+                            Тест Купера
+                        </th>
+                        <th>
+                            Передача мяча сверху в стену
+                        </th>
+                        <th>
+                            Передача мяча снизу в стену
+                        </th>
+
+                        <th>
+                            Скорость реакции
+                        </th>
+                        <th>
+                            Объем памяти
+                        </th>
+                        <th>
+                            Внимание
+                        </th>
+                        <th>
+                            Пространственная ориентация
+                        </th>
+                        <th>
+                            Коммуникабельность
+                        </th>
+                        <th>
+                            Стрессоустойчивость
+                        </th>
+                    </tr>
+                    </thead>
+                    {% for player in players %}
+                        <tr>
+                            <td>
+                                {{ player.id }}
+                            </td>
+                            <td>
+                                {{ player.last_name }}
+                            </td>
+                            <td>
+                                {{ player.first_name }}
+                            </td>
+                            <td>
+                                {{ player.patronymic_name }}
+                            </td>
+                            <td>
+                                {{ player.club }}
+                            </td>
+                            <td>
+                                {{ player.criterio1 }}
+                            </td>
+                            <td>
+                                {{ player.criterio2 }}
+                            </td>
+                            <td>
+                                {{ player.criterio3 }}
+                            </td>
+                            <td>
+                                {{ player.criterio4 }}
+                            </td>
+                            <td>
+                                {{ player.criterio5 }}
+                            </td>
+                            <td>
+                                {{ player.criterio6 }}
+                            </td>
+                            <td>
+                                {{ player.criterio7 }}
+                            </td>
+                            <td>
+                                {{ player.criterio8 }}
+                            </td>
+                            <td>
+                                {{ player.criterio9 }}
+                            </td>
+                            <td>
+                                {{ player.criterio10 }}
+                            </td>
+                            <td>
+                                {{ player.criterio11 }}
+                            </td>
+                            <td>
+                                {{ player.criterio12 }}
+                            </td>
+                            <td>
+                                {{ player.criterio13 }}
+                            </td>
+                            <td>
+                                {{ player.criterio14 }}
+                            </td>
+                            <td>
+                                {{ player.criterio15 }}
+                            </td>
+                            <td>
+                                {{ player.criterio16 }}
+                            </td>
+                            <td>
+                                {{ player.criterio17 }}
+                            </td>
+                            <td>
+                                {{ player.criterio18 }}
+                            </td>
+                            <td>
+                                {{ player.criterio19 }}
+                            </td>
+                            <td>
+                                {{ player.criterio20 }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="form-group">
+            <button type="button" class="btn btn-primary center-block" data-toggle="modal" data-target="#myModal">
+                Распределить
+            </button>
+                </div>
+        </div>
+    <div class="col-sm-1"></div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="spinner" class="modal-header">
+{#                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span#}
+{#                            aria-hidden="true">&times;</span></button>#}
+{#                    <h4 class="modal-title" id="myModalLabel">Spinner</h4>#}
+                    <div id="spinner" class="spin" data-spin />
+                </div>
+                <div class="modal-body">
+                    Подождите пожалуйста. Идет процесс распределения...
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+$('.spin').spin();
+$('.spin').spin('show');
+    </script>
 {% endblock %}
